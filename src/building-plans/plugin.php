@@ -9,7 +9,7 @@ namespace Awsm\WP_Plugin\Building_Plans;
  *
  * @since 1.0.0
  */
-interface Plugin_Interface {
+interface Plugin {
 	/**
 	 * Returns plugin name.
 	 *

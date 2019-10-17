@@ -9,11 +9,11 @@ namespace Awsm\WP_Plugin\Building_Plans;
  *
  * @since 1.0.0
  */
-interface Hooks_Actions_Interface {
+interface Hooks_Actions {
 	/**
 	 * Adding Hooks.
 	 *
 	 * @since 1.0.0
 	 */
-	public function add_actions();
+	public static function add_actions();
 }

@@ -3,17 +3,17 @@
 namespace Awsm\WP_Plugin\Building_Plans;
 
 /**
- * Interface Hooks_Interface.
+ * Interface Assets_Admin_Interface.
  *
  * @package SvenWagener\WP_Plugin
  *
  * @since 1.0.0
  */
-interface Hooks_Filters_Interface {
+interface Assets_Admin_Scripts {
 	/**
-	 * Adding Hooks.
+	 * Adding admin scripts.
 	 *
 	 * @since 1.0.0
 	 */
-	public function add_filters();
+	public static function enqueue_admin_scripts();
 }

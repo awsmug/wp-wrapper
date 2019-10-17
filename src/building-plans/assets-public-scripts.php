@@ -9,11 +9,11 @@ namespace Awsm\WP_Plugin\Building_Plans;
  *
  * @since 1.0.0
  */
-interface Assets_Admin_Interface {
+interface Assets_Public_Scripts {
 	/**
 	 * Adding admin scripts.
 	 *
 	 * @since 1.0.0
 	 */
-	public function enqueue_admin_scripts();
+	public static function enqueue_public_scripts();
 }
