@@ -17,7 +17,7 @@ trait Loader {
 	 *
 	 * @since 1.0.0
 	 */
-	protected static function load() {
+	public static function load() {
 		if ( method_exists( __CLASS__, 'load_assets' ) ) {
 			self::load_assets();
 		}
