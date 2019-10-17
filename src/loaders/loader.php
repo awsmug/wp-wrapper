@@ -11,7 +11,7 @@ namespace Awsm\WP_Plugin\Loaders;
  *
  * @package awsm\Tools
  */
-trait Plugin_Loader {
+trait Loader {
 	/**
 	 * Loading Assets if functions where added.
 	 *
