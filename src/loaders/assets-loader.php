@@ -1,6 +1,6 @@
 <?php
 
-namespace Awsm\WP_Plugin\Tools;
+namespace Awsm\WP_Plugin\Loaders;
 
 /**
  * Trait Assets_Loader.
