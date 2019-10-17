@@ -18,5 +18,10 @@
   ],
   "support": {
     "issues": "https://github.com/awsmug/core/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "Awsm\\WP_Plugin\\": "src/"
+    }
   }
 }
