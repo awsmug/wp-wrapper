@@ -4,5 +4,10 @@
   "description": "",
   "devDependencies": {
     "grunt": "^1.0.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Awsm\\WP_Plugin\\": "src/"
+    }
   }
 }
