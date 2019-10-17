@@ -1,6 +1,6 @@
 <?php
 
-namespace SvenWagener\WP_Plugin;
+namespace Awsm\WP_Plugin\Building_Plans;
 
 /**
  * Interface Plugin_Interface

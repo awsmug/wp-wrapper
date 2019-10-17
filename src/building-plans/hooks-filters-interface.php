@@ -1,6 +1,6 @@
 <?php
 
-namespace SvenWagener\WP_Plugin;
+namespace Awsm\WP_Plugin\Building_Plans;
 
 /**
  * Interface Hooks_Interface.
@@ -9,11 +9,11 @@ namespace SvenWagener\WP_Plugin;
  *
  * @since 1.0.0
  */
-interface Hooks_Interface {
+interface Hooks_Filters_Interface {
 	/**
 	 * Adding Hooks.
 	 *
 	 * @since 1.0.0
 	 */
-	public function add_hooks();
+	public function add_filters();
 }

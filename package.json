@@ -1,0 +1,8 @@
+{
+  "name": "wp-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "grunt": "^1.0.4"
+  }
+}

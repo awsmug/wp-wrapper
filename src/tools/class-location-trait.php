@@ -1,9 +1,9 @@
 <?php
 
-namespace SvenWagener\WP_Plugin;
+namespace Awsm\WP_Plugin\Tools;
 
 /**
- * Trait Plugin_Path_Trait.
+ * Trait Class_Location_Trait.
  *
  * @since 1.1.0
  *

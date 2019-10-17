@@ -1,0 +1,22 @@
+{
+  "name": "awsm/wp-plugin",
+  "description": "WP Plugin building plans and helper tools. ",
+  "version": "1.0.0",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Plugin"
+  ],
+  "homepage": "https://github.com/awsmug/wp-plugin",
+  "authors": [
+    {
+      "name": "Sven Wagener",
+      "email": "sven@awesome.ug",
+      "homepage": "http://svenwagener.com",
+      "role": "Head of Development"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/awsmug/core/issues"
+  }
+}
