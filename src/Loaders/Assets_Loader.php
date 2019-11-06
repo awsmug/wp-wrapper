@@ -28,7 +28,7 @@ trait Assets_Loader {
 			add_action( 'wp_enqueue_scripts',  array( $this, 'enqueue_public_scripts' ) );
 		}
 		if ( method_exists( $this, 'enqueue_public_Styles' ) ) {
-			add_action( 'wp_enqueue_scripts', array( $thiss, 'enqueue_public_Styles' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_public_Styles' ) );
 		}
 	}
 }
