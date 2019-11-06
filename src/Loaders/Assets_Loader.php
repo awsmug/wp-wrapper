@@ -19,16 +19,16 @@ trait Assets_Loader {
 	 */
 	protected function load_assets() {
 		if ( method_exists( $this, 'enqueue_admin_scripts' ) ) {
-			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
 		}
 		if ( method_exists( $this, 'enqueue_admin_styles' ) ) {
-			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
+			add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_styles' ] );
 		}
 		if ( method_exists( $this, 'enqueue_public_scripts' ) ) {
-			add_action( 'wp_enqueue_scripts',  array( $this, 'enqueue_public_scripts' ) );
+			add_action( 'wp_enqueue_scripts',  [ $this, 'enqueue_public_scripts' ] );
 		}
 		if ( method_exists( $this, 'enqueue_public_Styles' ) ) {
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_public_Styles' ) );
+			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_public_Styles' ] );
 		}
 	}
 }
