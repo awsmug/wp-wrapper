@@ -9,7 +9,7 @@ namespace Awsm\WP_Plugin\Tools;
  *
  * @package SvenWagener\WP_Plugin
  */
-trait Class_Location_Trait {
+trait Class_Location {
 
     /**
      * Get full file location of class containing trait.
