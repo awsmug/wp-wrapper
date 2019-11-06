@@ -18,10 +18,10 @@ trait Hooks_Loader {
 	 * @since 1.0.0
 	 */
 	protected function load_hooks() {
-		if ( method_exists( __CLASS__, 'add_actions' ) ) {
+		if ( method_exists( $this, 'add_actions' ) ) {
 			$this->add_actions();
 		}
-		if ( method_exists( __CLASS__, 'add_filters' ) ) {
+		if ( method_exists( $this, 'add_filters' ) ) {
 			$this->add_filters();
 		}
 	}
