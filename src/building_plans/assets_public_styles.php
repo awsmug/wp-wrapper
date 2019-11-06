@@ -15,5 +15,5 @@ interface Assets_Public_Styles {
 	 *
 	 * @since 1.0.0
 	 */
-	public static function enqueue_public_styles();
+	public function enqueue_public_styles();
 }

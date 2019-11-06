@@ -17,18 +17,18 @@ trait Assets_Loader {
 	 *
 	 * @since 1.0.0
 	 */
-	protected static function load_assets() {
-		if ( method_exists( __CLASS__, 'enqueue_admin_scripts' ) ) {
-			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_admin_scripts' ) );
+	protected function load_assets() {
+		if ( method_exists( $this, 'enqueue_admin_scripts' ) ) {
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 		}
-		if ( method_exists( __CLASS__, 'enqueue_admin_styles' ) ) {
-			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_admin_styles' ) );
+		if ( method_exists( $this, 'enqueue_admin_styles' ) ) {
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 		}
-		if ( method_exists( __CLASS__, 'enqueue_public_scripts' ) ) {
-			add_action( 'wp_enqueue_scripts',  array( __CLASS__, 'enqueue_public_scripts' ) );
+		if ( method_exists( $this, 'enqueue_public_scripts' ) ) {
+			add_action( 'wp_enqueue_scripts',  array( $this, 'enqueue_public_scripts' ) );
 		}
-		if ( method_exists( __CLASS__, 'enqueue_public_Styles' ) ) {
-			add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_public_Styles' ) );
+		if ( method_exists( $this, 'enqueue_public_Styles' ) ) {
+			add_action( 'wp_enqueue_scripts', array( $thiss, 'enqueue_public_Styles' ) );
 		}
 	}
 }

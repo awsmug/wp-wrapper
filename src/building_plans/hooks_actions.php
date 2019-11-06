@@ -15,5 +15,5 @@ interface Hooks_Actions {
 	 *
 	 * @since 1.0.0
 	 */
-	public static function add_actions();
+	public function add_actions();
 }

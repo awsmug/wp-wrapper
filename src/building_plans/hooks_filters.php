@@ -15,5 +15,5 @@ interface Hooks_Filters {
 	 *
 	 * @since 1.0.0
 	 */
-	public static function add_filters();
+	public function add_filters();
 }

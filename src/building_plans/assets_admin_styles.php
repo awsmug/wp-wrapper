@@ -15,5 +15,5 @@ interface Assets_Admin_Styles {
 	 *
 	 * @since 1.0.0
 	 */
-	public static function enqueue_admin_styles();
+	public function enqueue_admin_styles();
 }

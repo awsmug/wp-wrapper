@@ -15,5 +15,5 @@ interface Assets_Admin_Scripts {
 	 *
 	 * @since 1.0.0
 	 */
-	public static function enqueue_admin_scripts();
+	public function enqueue_admin_scripts();
 }

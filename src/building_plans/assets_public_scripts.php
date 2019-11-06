@@ -15,5 +15,5 @@ interface Assets_Public_Scripts {
 	 *
 	 * @since 1.0.0
 	 */
-	public static function enqueue_public_scripts();
+	public function enqueue_public_scripts();
 }

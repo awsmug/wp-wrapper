@@ -17,12 +17,12 @@ trait Loader {
 	 *
 	 * @since 1.0.0
 	 */
-	public static function load() {
-		if ( method_exists( __CLASS__, 'load_assets' ) ) {
-			self::load_assets();
+	public function load() {
+		if ( method_exists( $this, 'load_assets' ) ) {
+			$this->load_assets();
 		}
-		if ( method_exists( __CLASS__, 'load_hooks' ) ) {
-			self::load_hooks();
+		if ( method_exists( $this, 'load_hooks' ) ) {
+			$this->load_hooks();
 		}
 	}
 }
