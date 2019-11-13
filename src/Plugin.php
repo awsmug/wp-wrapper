@@ -75,7 +75,7 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      *
      * @since 1.0.0
      *
-     * @return Plugin
+     * @return Plugin Plugin object.
      */
     public function boot() {
         $this->load();
@@ -98,10 +98,14 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      *
      * @since 1.0.0
      *
-     * @return string Plugin name.
+     * @param string $name Name of the plugin.
+     *
+     * @return Plugin Plugin object.
      */
     public function set_name( $name ) {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -116,6 +120,21 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
     }
 
     /**
+     * Set plugin version.
+     *
+     * @since 1.0.0
+     *
+     * @param string Plugin version.
+     *
+     * @return Plugin Plugin object.
+     */
+    public function set_version( $version ) {
+        $this->version = $version;
+
+        return $this;
+    }
+
+    /**
      * Get plugin version.
      *
      * @since 1.0.0
@@ -127,18 +146,6 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
     }
 
     /**
-     * Set plugin version.
-     *
-     * @since 1.0.0
-     *
-     * @param string Plugin version.
-     */
-    public function set_version( $version ) {
-        $this->version = $version;
-    }
-
-
-    /**
      * Add service.
      *
      * @since 1.0.0
@@ -146,7 +153,7 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      * @param Service $class Class name.
      * @param array  $params Parameters to put in constructor.
      *
-     * @return Plugin
+     * @return Plugin Plugin object.
      **/
     public function add_service( Service $class, ...$params ) : Plugin {
         $this->services[] = array( $class, $params );
@@ -161,7 +168,6 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      * @since 1.0.0
      *
      * @return Service[] Array of fully qualified class names.
-     *
      */
     private function get_services() {
         return $this->services;
@@ -193,7 +199,8 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      *
      * @param string $textdomain Textdomain.
      * @param string $translation_path Path to translation folder.
-     * @return Plugin
+     *
+     * @return Plugin Plugin object.
      **/
     public function add_translation( $textdomain, $translation_path ): Plugin {
         $this->textdomain = $textdomain;
@@ -213,6 +220,4 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
     public function load_translation() {
         return load_plugin_textdomain($this->textdomain, false, $this->translation_path);
     }
-
-
 }
