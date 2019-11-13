@@ -65,7 +65,7 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      *
      * @var string $translationPath Path to translations
      */
-    protected $translationPath = '';
+    protected $translation_path = '';
 
 
     /**
@@ -142,6 +142,7 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      * @since 1.0.0
      *
      * @param string $class Class name.
+     * @param array  $params Parameters to put in constructor.
      *
      * @return Plugin
      **/
@@ -157,7 +158,7 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      *
      * @since 1.0.0
      *
-     * @return array<string> Array of fully qualified class names.
+     * @return Service[] Array of fully qualified class names.
      *
      */
     private function get_services() {
@@ -174,7 +175,7 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
         $services = $this->get_services();
         array_walk($services, function ( $service ) {
 
-            if ( !class_exists( $service[0] ) || !method_exists( $service[0], 'register') )
+            if ( !class_exists( $service[0] ) || !method_exists( $service[0], 'register' ) )
                 return;
 
             (new $service)->register( $service[1] );
@@ -188,12 +189,12 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      * @since 1.0.0
      *
      * @param string $textdomain Textdomain.
-     * @param string $translationPath Path to translation folder.
+     * @param string $translation_path Path to translation folder.
      * @return Plugin
      **/
-    public function add_translation(string $textdomain, $translationPath): Plugin {
+    public function add_translation( $textdomain, $translation_path ): Plugin {
         $this->textdomain = $textdomain;
-        $this->translationPath = $translationPath;
+        $this->translation_path = $translation_path;
 
         return $this;
     }
@@ -207,7 +208,7 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      * @return bool If translation is loaded
      **/
     public function load_translation() {
-        return load_plugin_textdomain($this->textdomain, false, $this->translationPath);
+        return load_plugin_textdomain($this->textdomain, false, $this->translation_path);
     }
 
 
