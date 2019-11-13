@@ -178,7 +178,7 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
             if ( !class_exists( $service[0] ) || !method_exists( $service[0], 'register' ) )
                 return;
 
-            (new $service)->register( $service[1] );
+            call_user_func_array( [ (new $service[0]), 'register' ], $service[1] );
         });
     }
 
