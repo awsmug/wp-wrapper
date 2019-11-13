@@ -20,15 +20,6 @@ interface Plugin {
 	public function get_name();
 
 	/**
-	 * Returns plugin slug.
-	 *
-	 * @return string Plugin slug.
-	 *
-	 * @since 1.0.0
-	 */
-	public function get_slug();
-
-	/**
 	 * Returns plugin version.
 	 *
 	 * @return string Plugin version.
@@ -38,11 +29,11 @@ interface Plugin {
 	public function get_version();
 
 	/**
-	 * Runs the plugin.
+	 * Boots the plugin.
 	 *
-	 * @return string Runs the plugin.
+	 * @return string Boots the plugin.
 	 *
 	 * @since 1.0.0
 	 */
-	public function run();
+	public function boot();
 }
