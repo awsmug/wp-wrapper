@@ -7,6 +7,7 @@ use Awsm\WP_Plugin\Building_Plans\Hooks_Actions;
 use Awsm\WP_Plugin\Building_Plans\Plugin AS Plugin_Interface;
 use Awsm\WP_Plugin\Loaders\Hooks_Loader;
 use Awsm\WP_Plugin\Loaders\Loader;
+use Awsmug\WP_Plugin\Exceptions\Exception;
 
 /**
  * Class Plugin.
@@ -109,7 +110,7 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      *
      * @return string Plugin name.
      */
-    public function get_name() {
+    public function get_name() : string {
         return $this->name;
     }
 
@@ -120,7 +121,7 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      *
      * @return string Plugin version.
      */
-    public function get_version() {
+    public function get_version() : string {
         return $this->version;
     }
 
@@ -146,7 +147,7 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      *
      * @return Plugin
      **/
-    public function add_service( string $class, ...$params ) {
+    public function add_service( string $class, ...$params ) : Plugin {
         $this->services[] = array( $class, $params );
 
         return $this;
@@ -175,10 +176,11 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
         $services = $this->get_services();
         array_walk($services, function ( $service ) {
 
-            if ( !class_exists( $service[0] ) || !method_exists( $service[0], 'register' ) )
-                return;
+            if ( !class_exists( $service[0] ) ) {
+                throw new Exception( sprintf( 'Service class \'%s\' does not exist', $service[0] ));
+            }
 
-            call_user_func_array( [ (new $service[0]), 'register' ], $service[1] );
+            new $service[0](...$service[1]);
         });
     }
 
