@@ -150,12 +150,12 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      *
      * @since 1.0.0
      *
-     * @param Service $class Class name.
+     * @param string $class Class name.
      * @param array  $params Parameters to put in constructor.
      *
      * @return Plugin Plugin object.
      **/
-    public function add_service( Service $class, ...$params ) : Plugin {
+    public function add_service( $class, ...$params ) : Plugin {
         $this->services[] = array( $class, $params );
 
         return $this;
@@ -187,7 +187,13 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
                 throw new Exception( sprintf( 'Service class \'%s\' does not exist', $service[0] ));
             }
 
-            new $service[0](...$service[1]);
+            $class = new \ReflectionClass( $service[0] );
+
+            if ( ! $class->implementsInterface( 'Service' ) ) {
+                throw new Exception( sprintf( 'Service class \'%s\' does not implement Service interface', $service[0] ));
+            }
+
+            $class->newInstance( ...$service[1] );
         });
     }
 
