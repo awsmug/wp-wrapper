@@ -5,6 +5,7 @@ namespace Awsm\WP_Plugin;
 
 use Awsm\WP_Plugin\Building_Plans\Hooks_Actions;
 use Awsm\WP_Plugin\Building_Plans\Plugin AS Plugin_Interface;
+use Awsm\WP_Plugin\Building_Plans\Service;
 use Awsm\WP_Plugin\Loaders\Hooks_Loader;
 use Awsm\WP_Plugin\Loaders\Loader;
 use Awsmug\WP_Plugin\Exceptions\Exception;
@@ -142,12 +143,12 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      *
      * @since 1.0.0
      *
-     * @param string $class Class name.
+     * @param Service $class Class name.
      * @param array  $params Parameters to put in constructor.
      *
      * @return Plugin
      **/
-    public function add_service( string $class, ...$params ) : Plugin {
+    public function add_service( Service $class, ...$params ) : Plugin {
         $this->services[] = array( $class, $params );
 
         return $this;
