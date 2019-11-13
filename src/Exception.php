@@ -5,7 +5,7 @@
  *
  * @since 1.0.0
  */
-namespace Awsmug\WP_Plugin\Exceptions;
+namespace Awsmug\WP_Plugin;
 
 /**
  * Class EnonException.
