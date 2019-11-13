@@ -1,6 +1,6 @@
 <?php
 
-namespace Awsm\WP_Plugin\Building_Plans;
+namespace Awsm\WP_Plugin\Services;
 
 /**
  * Interface Hooks_Interface.
@@ -9,11 +9,11 @@ namespace Awsm\WP_Plugin\Building_Plans;
  *
  * @since 1.0.0
  */
-interface Hooks_Actions {
+interface Filters {
 	/**
 	 * Adding Hooks.
 	 *
 	 * @since 1.0.0
 	 */
-	public function add_actions();
+	public function add_filters();
 }

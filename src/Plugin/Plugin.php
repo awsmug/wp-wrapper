@@ -1,11 +1,10 @@
 <?php
 
 
-namespace Awsm\WP_Plugin;
+namespace Awsm\WP\Plugin;
 
-use Awsm\WP_Plugin\Building_Plans\Hooks_Actions;
-use Awsm\WP_Plugin\Building_Plans\Plugin AS Plugin_Interface;
-use Awsm\WP_Plugin\Building_Plans\Service;
+use Awsm\WP_Plugin\Services\Actions;
+use Awsm\WP_Plugin\Services\Service;
 use Awsm\WP_Plugin\Loaders\Hooks_Loader;
 use Awsm\WP_Plugin\Loaders\Loader;
 use Awsmug\WP_Plugin\Exceptions\Exception;
@@ -19,9 +18,7 @@ use Awsmug\WP_Plugin\Exceptions\Exception;
  * @package Awsm\WP_Plugin
  * @author  Sven Wagener <support@awesome.ug>
  */
-class Plugin implements Plugin_Interface, Hooks_Actions {
-    use Hooks_Loader, Loader;
-
+class Plugin {
     /**
      * Plugin name.
      *
@@ -69,6 +66,16 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      */
     protected $translation_path = '';
 
+    /**
+     * Running the plugin object.
+     *
+     * @since 1.0.0
+     *
+     * @return Plugin Plugin object.
+     */
+    public function __construct() {
+        return $this;
+    }
 
     /**
      * Register the plugin with the WordPress system.
@@ -81,16 +88,6 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
         $this->load();
 
         return $this;
-    }
-
-    /**
-     * Adding actions.
-     *
-     * @since 1.0.0
-     */
-    public function add_actions() {
-        add_action( 'plugins_loaded', [$this, 'register_services'] );
-        add_action( 'plugins_loaded', [$this, 'load_translation'] );
     }
 
     /**
@@ -169,7 +166,7 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      *
      * @return Service[] Array of fully qualified class names.
      */
-    private function get_services() {
+    public function get_services() {
         return $this->services;
     }
 
@@ -180,10 +177,9 @@ class Plugin implements Plugin_Interface, Hooks_Actions {
      * @since 1.0.0
      */
     public function register_services() {
-        $services = $this->get_services();
-        array_walk($services, function ( $service ) {
+        array_walk($this->services, function ( $service ) {
 
-            if ( !class_exists( $service[0] ) ) {
+            if ( ! class_exists( $service[0] ) ) {
                 throw new Exception( sprintf( 'Service class \'%s\' does not exist', $service[0] ));
             }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Awsm\WP_Plugin\Building_Plans;
+namespace Awsm\WP_Plugin\Services;
 
 /**
  * Interface Assets_Admin_Interface.
@@ -9,11 +9,11 @@ namespace Awsm\WP_Plugin\Building_Plans;
  *
  * @since 1.0.0
  */
-interface Assets_Admin_Styles {
+interface Public_Styles {
 	/**
 	 * Adding admin scripts.
 	 *
 	 * @since 1.0.0
 	 */
-	public function enqueue_admin_styles();
+	public function enqueue_public_styles();
 }
