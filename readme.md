@@ -63,6 +63,30 @@ class MyTaskRunner {
 (new MyTaskRunner())->addTask( MyTask::class );
 ```
 
+But better load the scripts where they have to be loaded. Use the action interface to do your actions.
+
+```php
+<?php
+/**
+ * Example task runner class.
+ **/
+class MyTaskRunner implements Awsm\WPWrapper\BuildingPlans\Actions {
+    use \Awsm\WPWrapper\Tasks\TaskRunner;
+    
+    public function __construct() {
+        $this->runTasks();
+    }
+
+    public function add_actions(){
+        add_action( 'select_a_hook_here', [ $this. 'runTasks'] );
+    }
+
+}
+
+(new MyTaskRunner())->addTask( MyTask::class );
+```
+
+
 ## Task depency injection
 
 It is possible to use depency injection in the constructor by passing objects on task addition.
