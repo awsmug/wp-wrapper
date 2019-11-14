@@ -1,13 +1,13 @@
 {
-  "name": "awsm/wp-plugin",
-  "description": "WP Plugin building plans and helper tools. ",
+  "name": "awsm/wp-wrapper",
+  "description": "Wrapping WordPress for more beautiful code.",
   "version": "1.0.0",
   "license": "GPL-2.0-or-later",
   "keywords": [
     "WordPress",
     "Plugin"
   ],
-  "homepage": "https://github.com/awsmug/wp-plugin",
+  "homepage": "https://github.com/awsmug/wp-wrapper",
   "authors": [
     {
       "name": "Sven Wagener",
@@ -17,11 +17,11 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/awsmug/core/issues"
+    "issues": "https://github.com/awsmug/wp-wrapper/issues"
   },
   "autoload": {
     "psr-4": {
-      "Awsm\\WP_Plugin\\": "src/"
+      "Awsm\\WPWrapper\\": "src/"
     }
   }
 }

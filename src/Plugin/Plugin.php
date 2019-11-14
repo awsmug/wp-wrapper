@@ -1,13 +1,11 @@
 <?php
 
 
-namespace Awsm\WP\Plugin;
+namespace Awsm\WPWrapper\Plugin;
 
-use Awsm\WP_Plugin\Services\Actions;
-use Awsm\WP_Plugin\Services\Service;
-use Awsm\WP_Plugin\Loaders\Hooks_Loader;
-use Awsm\WP_Plugin\Loaders\Loader;
-use Awsmug\WP_Plugin\Exceptions\Exception;
+
+use Awsm\WPWrapper\Services\Service;
+use Awsmug\WPWrapper\Exceptions\Exception;
 
 /**
  * Class Plugin.
@@ -18,7 +16,8 @@ use Awsmug\WP_Plugin\Exceptions\Exception;
  * @package Awsm\WP_Plugin
  * @author  Sven Wagener <support@awesome.ug>
  */
-class Plugin {
+class Plugin
+{
     /**
      * Plugin name.
      *
@@ -64,27 +63,29 @@ class Plugin {
      *
      * @var string $translationPath Path to translations
      */
-    protected $translation_path = '';
+    protected $translationPath = '';
 
     /**
      * Running the plugin object.
      *
+     * @return Plugin Plugin object.
      * @since 1.0.0
      *
-     * @return Plugin Plugin object.
      */
-    public function __construct() {
+    public function __construct()
+    {
         return $this;
     }
 
     /**
      * Register the plugin with the WordPress system.
      *
+     * @return Plugin Plugin object.
      * @since 1.0.0
      *
-     * @return Plugin Plugin object.
      */
-    public function boot() {
+    public function boot()
+    {
         $this->load();
 
         return $this;
@@ -93,13 +94,14 @@ class Plugin {
     /**
      * Get plugin name.
      *
-     * @since 1.0.0
-     *
      * @param string $name Name of the plugin.
      *
      * @return Plugin Plugin object.
+     * @since 1.0.0
+     *
      */
-    public function set_name( $name ) {
+    public function setName($name)
+    {
         $this->name = $name;
 
         return $this;
@@ -108,24 +110,26 @@ class Plugin {
     /**
      * Get plugin name.
      *
+     * @return string Plugin name.
      * @since 1.0.0
      *
-     * @return string Plugin name.
      */
-    public function get_name() : string {
+    public function getName(): string
+    {
         return $this->name;
     }
 
     /**
      * Set plugin version.
      *
-     * @since 1.0.0
-     *
      * @param string Plugin version.
      *
      * @return Plugin Plugin object.
+     * @since 1.0.0
+     *
      */
-    public function set_version( $version ) {
+    public function setVersion($version)
+    {
         $this->version = $version;
 
         return $this;
@@ -134,26 +138,28 @@ class Plugin {
     /**
      * Get plugin version.
      *
+     * @return string Plugin version.
      * @since 1.0.0
      *
-     * @return string Plugin version.
      */
-    public function get_version() : string {
+    public function getVersion(): string
+    {
         return $this->version;
     }
 
     /**
      * Add service.
      *
-     * @since 1.0.0
-     *
      * @param string $class Class name.
-     * @param array  $params Parameters to put in constructor.
+     * @param array $params Parameters to put in constructor.
      *
      * @return Plugin Plugin object.
-     **/
-    public function add_service( $class, ...$params ) : Plugin {
-        $this->services[] = array( $class, $params );
+     **@since 1.0.0
+     *
+     */
+    public function addService($class, ...$params): Plugin
+    {
+        $this->services[] = array($class, $params);
 
         return $this;
     }
@@ -162,11 +168,12 @@ class Plugin {
     /**
      * Get the list of services to register.
      *
+     * @return Service[] Array of fully qualified class names.
      * @since 1.0.0
      *
-     * @return Service[] Array of fully qualified class names.
      */
-    public function get_services() {
+    public function getServices()
+    {
         return $this->services;
     }
 
@@ -176,20 +183,21 @@ class Plugin {
      *
      * @since 1.0.0
      */
-    public function register_services() {
-        array_walk($this->services, function ( $service ) {
+    public function registerServices()
+    {
+        array_walk($this->services, function ($service) {
 
-            if ( ! class_exists( $service[0] ) ) {
-                throw new Exception( sprintf( 'Service class \'%s\' does not exist', $service[0] ));
+            if (!class_exists($service[0])) {
+                throw new Exception(sprintf('Service class \'%s\' does not exist', $service[0]));
             }
 
-            $class = new \ReflectionClass( $service[0] );
+            $class = new \ReflectionClass($service[0]);
 
-            if ( ! $class->implementsInterface( 'Service' ) ) {
-                throw new Exception( sprintf( 'Service class \'%s\' does not implement Service interface', $service[0] ));
+            if (!$class->implementsInterface('Service')) {
+                throw new Exception(sprintf('Service class \'%s\' does not implement Service interface', $service[0]));
             }
 
-            $class->newInstance( ...$service[1] );
+            $class->newInstance(...$service[1]);
         });
     }
 
@@ -197,14 +205,15 @@ class Plugin {
     /**
      * Set a textdomain.
      *
-     * @since 1.0.0
-     *
      * @param string $textdomain Textdomain.
      * @param string $translation_path Path to translation folder.
      *
      * @return Plugin Plugin object.
-     **/
-    public function add_translation( $textdomain, $translation_path ): Plugin {
+     **@since 1.0.0
+     *
+     */
+    public function addTranslation($textdomain, $translation_path): Plugin
+    {
         $this->textdomain = $textdomain;
         $this->translation_path = $translation_path;
 
@@ -215,11 +224,12 @@ class Plugin {
     /**
      * Load translation
      *
-     * @since 1.0.0
-     *
      * @return bool If translation is loaded
-     **/
-    public function load_translation() {
-        return load_plugin_textdomain($this->textdomain, false, $this->translation_path);
+     **@since 1.0.0
+     *
+     */
+    public function loadTranslation()
+    {
+        return \load_plugin_textdomain($this->textdomain, false, $this->translation_path);
     }
 }

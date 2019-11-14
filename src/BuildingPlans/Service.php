@@ -1,6 +1,6 @@
 <?php
 
-namespace Awsm\WP_Plugin\Services;
+namespace Awsm\WPWrapper\BuildingPlans;
 
 /**
  * Interface Plugin_Interface

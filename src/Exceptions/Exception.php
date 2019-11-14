@@ -5,7 +5,7 @@
  *
  * @since 1.0.0
  */
-namespace Awsm\WP;
+namespace Awsm\WPWrapper\Exceptions;
 
 /**
  * Class Exception.
