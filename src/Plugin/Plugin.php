@@ -3,9 +3,9 @@
 
 namespace Awsm\WPWrapper\Plugin;
 
-
-use Awsm\WPWrapper\Services\Service;
-use Awsmug\WPWrapper\Exceptions\Exception;
+use Awsm\WPWrapper\BuildingPlans\Actions;
+use Awsm\WPWrapper\BuildingPlans\Service;
+use Awsm\WPWrapper\Exceptions\Exception;
 
 /**
  * Class Plugin.
@@ -16,7 +16,7 @@ use Awsmug\WPWrapper\Exceptions\Exception;
  * @package Awsm\WP_Plugin
  * @author  Sven Wagener <support@awesome.ug>
  */
-class Plugin
+class Plugin implements Actions, Service
 {
     /**
      * Plugin name.
@@ -68,9 +68,9 @@ class Plugin
     /**
      * Running the plugin object.
      *
-     * @return Plugin Plugin object.
      * @since 1.0.0
      *
+     * @return Plugin Plugin object.
      */
     public function __construct()
     {
@@ -86,19 +86,40 @@ class Plugin
      */
     public function boot()
     {
-        $this->load();
+        $this->run();
 
         return $this;
     }
 
     /**
+     * Running services.
+     *
+     * @since 1.0.0
+     */
+    public function run()
+    {
+        $this->add_actions();
+    }
+
+    /**
+     * Adding actions.
+     *
+     * @since 1.0.0
+     */
+    public function add_actions()
+    {
+        add_action('plugins_loaded', [$this, 'registerServices']);
+        add_action('plugins_loaded', [$this, 'loadTranslation']);
+    }
+
+    /**
      * Get plugin name.
+     *
+     * @since 1.0.0
      *
      * @param string $name Name of the plugin.
      *
      * @return Plugin Plugin object.
-     * @since 1.0.0
-     *
      */
     public function setName($name)
     {
@@ -110,9 +131,9 @@ class Plugin
     /**
      * Get plugin name.
      *
-     * @return string Plugin name.
      * @since 1.0.0
      *
+     * @return string Plugin name.
      */
     public function getName(): string
     {
@@ -122,11 +143,11 @@ class Plugin
     /**
      * Set plugin version.
      *
+     * @since 1.0.0
+     *
      * @param string Plugin version.
      *
      * @return Plugin Plugin object.
-     * @since 1.0.0
-     *
      */
     public function setVersion($version)
     {
@@ -138,9 +159,9 @@ class Plugin
     /**
      * Get plugin version.
      *
-     * @return string Plugin version.
      * @since 1.0.0
      *
+     * @return string Plugin version.
      */
     public function getVersion(): string
     {
@@ -150,12 +171,12 @@ class Plugin
     /**
      * Add service.
      *
+     * @since 1.0.0
+     *
      * @param string $class Class name.
      * @param array $params Parameters to put in constructor.
      *
      * @return Plugin Plugin object.
-     **@since 1.0.0
-     *
      */
     public function addService($class, ...$params): Plugin
     {
@@ -168,9 +189,9 @@ class Plugin
     /**
      * Get the list of services to register.
      *
-     * @return Service[] Array of fully qualified class names.
      * @since 1.0.0
      *
+     * @return Service[] Array of fully qualified class names.
      */
     public function getServices()
     {
@@ -205,17 +226,17 @@ class Plugin
     /**
      * Set a textdomain.
      *
+     * @since 1.0.0
+     *
      * @param string $textdomain Textdomain.
-     * @param string $translation_path Path to translation folder.
+     * @param string $translationPath Path to translation folder.
      *
      * @return Plugin Plugin object.
-     **@since 1.0.0
-     *
      */
-    public function addTranslation($textdomain, $translation_path): Plugin
+    public function addTranslation($textdomain, $translationPath): Plugin
     {
         $this->textdomain = $textdomain;
-        $this->translation_path = $translation_path;
+        $this->translationPath = $translationPath;
 
         return $this;
     }
@@ -224,12 +245,12 @@ class Plugin
     /**
      * Load translation
      *
-     * @return bool If translation is loaded
-     **@since 1.0.0
+     * @since 1.0.0
      *
+     * @return bool If translation is loaded.
      */
     public function loadTranslation()
     {
-        return \load_plugin_textdomain($this->textdomain, false, $this->translation_path);
+        return \load_plugin_textdomain($this->textdomain, false, $this->translationPath);
     }
 }

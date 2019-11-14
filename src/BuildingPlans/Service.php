@@ -5,7 +5,7 @@ namespace Awsm\WPWrapper\BuildingPlans;
 /**
  * Interface Plugin_Interface
  *
- * @package SvenWagener\WP_Plugin
+ * @package Awsm\WPWrapper\BuildingPlans
  *
  * @since 1.0.0
  */
@@ -17,5 +17,5 @@ interface Service {
      *
      * @return mixed
      */
-    public function register();
+    public function run();
 }

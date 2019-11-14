@@ -1,6 +1,6 @@
 <?php
 
-namespace Awsm\WPWrapper\Hooks;
+namespace Awsm\WPWrapper\BuildingPlans;
 
 /**
  * Interface Hooks_Interface.
