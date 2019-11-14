@@ -16,7 +16,7 @@ use Awsm\WPWrapper\Exceptions\Exception;
  * @package Awsm\WP_Plugin
  * @author  Sven Wagener <support@awesome.ug>
  */
-class Plugin implements Actions, Service
+class Plugin implements Actions
 {
     /**
      * Plugin name.
@@ -86,19 +86,9 @@ class Plugin implements Actions, Service
      */
     public function boot()
     {
-        $this->run();
+        $this->add_actions();
 
         return $this;
-    }
-
-    /**
-     * Running services.
-     *
-     * @since 1.0.0
-     */
-    public function run()
-    {
-        $this->add_actions();
     }
 
     /**
