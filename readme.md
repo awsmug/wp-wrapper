@@ -11,14 +11,13 @@ composer require awsm/wp-wrapper
 
 ## Plugins
 
-The plugin wrapper helps you to initialize your plugin.
+The plugin wrapper helps you to initialize your plugin. This is a simple example for a plugin.
 
 ```php
 <?php
 /**
- * Plugin Name: Example plugin
+ * Plugin Name: Example plugin.
  */
-
 // Path to composer autoload file.
 require dirname( __DIR__ ) .'/vendor/autoload.php'; 
 
@@ -28,14 +27,14 @@ require dirname( __DIR__ ) .'/vendor/autoload.php';
     ->boot();
 ```
 
-## Services
+## Tasks
 
-A service is a class with your program code and contains the service interface.
+A task is a class with your program code and contains the task interface. 
 
 ```php
 <?php
 /**
- * Example service
+ * Example service.
  **/
 class MyTask implements \Awsm\WPWrapper\BuildingPlans\Task {
     public function run() {
@@ -44,5 +43,27 @@ class MyTask implements \Awsm\WPWrapper\BuildingPlans\Task {
 }
 ```
 
-##
+## Task runner
+
+The task runner is a trait which can be used in classes which have to start tasks.
+
+```php
+<?php
+/**
+ * Example task runner class.
+ **/
+class MyTaskRunner {
+    use \Awsm\WPWrapper\Tasks\TaskRunner;
+    
+    public function __construct() {
+        $this->runTasks();
+    }
+}
+
+(new MyTaskRunner())->addTask( MyTask::class );
+```
+
+## Task depency injection
+
+It is possible to use depency injection in the constructor by passing objects on task addition.
 
