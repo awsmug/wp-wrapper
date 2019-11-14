@@ -6,7 +6,7 @@ Wrapping WordPress for more beautiful code.
 
 Use composer to add WP Wrapper to our code.
 ```shell script
-composer require awsmug/wp-wrapper
+composer require awsm/wp-wrapper
 ```
 
 ## Plugins
