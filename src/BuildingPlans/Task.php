@@ -3,15 +3,15 @@
 namespace Awsm\WPWrapper\BuildingPlans;
 
 /**
- * Interface Plugin_Interface
+ * Task Plugin_Interface
  *
  * @package Awsm\WPWrapper\BuildingPlans
  *
  * @since 1.0.0
  */
-interface Service {
+interface Task {
     /**
-     * Register function which executes scripts on registration.
+     * Register function which executes scripts.
      *
      * @since 1.0.0
      *

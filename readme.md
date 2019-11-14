@@ -24,7 +24,7 @@ require dirname( __DIR__ ) .'/vendor/autoload.php';
 
 (new \Awsm\WPWrapper\Plugin\Plugin() )
     ->addTranslation( 'example-plugin', dirname(__DIR__) . '/languages' )
-    ->addService(MyService::class)
+    ->addTask(MyTask::class)
     ->boot();
 ```
 
@@ -37,9 +37,10 @@ A service is a class with your program code and contains the service interface.
 /**
  * Example service
  **/
-class MyService implements \Awsm\WPWrapper\BuildingPlans\Service {
+class MyTask implements \Awsm\WPWrapper\BuildingPlans\Task {
     public function run() {
         // Your code here
     }
 }
 ```
+
