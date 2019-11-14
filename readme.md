@@ -2,6 +2,13 @@
 
 Wrapping WordPress for more beautiful code.
 
+## Installation
+
+Use composer to add WP Wrapper to our code.
+```shell script
+composer require awsmug/wp-wrapper
+```
+
 ## Plugins
 
 The plugin wrapper helps you to initialize your plugin.
@@ -28,9 +35,8 @@ A service is a class with your program code and contains the service interface.
 ```php
 <?php
 /**
- * Plugin Name: Example plugin
- */
-
+ * Example service
+ **/
 class MyService implements \Awsm\WPWrapper\BuildingPlans\Service {
     public function run() {
         // Your code here
