@@ -1,3 +1,3 @@
-# WP Plugin 
+# WP Wrapper
 
-WordPress plugin building plans and helper tools. 
+Wrapping WordPress for more beautiful code.
