@@ -5,10 +5,10 @@
  *
  * @since 1.0.0
  */
-namespace Awsm\WP_Plugin;
+namespace Awsm\WP;
 
 /**
- * Class EnonException.
+ * Class Exception.
  *
  * @since 1.0.0
  *
