@@ -4,8 +4,6 @@
 namespace Awsm\WPWrapper\Plugin;
 
 use Awsm\WPWrapper\BuildingPlans\Actions;
-use Awsm\WPWrapper\BuildingPlans\Task;
-use Awsm\WPWrapper\Exceptions\Exception;
 use Awsm\WPWrapper\Tasks\TaskRunner;
 
 /**
@@ -79,7 +77,7 @@ class Plugin implements Actions
      */
     public function boot()
     {
-        $this->add_actions();
+        $this->addActions();
 
         return $this;
     }
@@ -89,7 +87,7 @@ class Plugin implements Actions
      *
      * @since 1.0.0
      */
-    public function add_actions()
+    public function addActions()
     {
         add_action('plugins_loaded', [$this, 'runTasks']);
         add_action('plugins_loaded', [$this, 'loadTranslation']);
