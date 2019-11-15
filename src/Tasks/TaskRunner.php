@@ -61,7 +61,7 @@ trait TaskRunner {
 
             $class = new \ReflectionClass( $task[0] );
 
-            if ( ! $class->implementsInterface('Awsm\WPWrapper\BuildingPlan\Task' ) )
+            if ( ! $class->implementsInterface('Awsm\WPWrapper\BuildingPlans\Task' ) )
             {
                 throw new Exception(sprintf('Service class \'%s\' does not implement Task interface', $task[0] ) );
             }
