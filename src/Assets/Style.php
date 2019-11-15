@@ -33,7 +33,7 @@ abstract class Style extends Asset implements Actions {
      * @param string $version      String specifying stylesheet version number.
      * @param string $media        The media for which this stylesheet has been defined.
      */
-    public function __construct( string $handle, string $source, array $dependencies = [], string $version, string $media = 'all' )
+    public function __construct( $handle, $source, $dependencies = [], $version, $media = 'all' )
     {
         $this->media = $media;
         $this->add_actions();
