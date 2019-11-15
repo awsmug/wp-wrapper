@@ -11,9 +11,9 @@ namespace Awsm\WPWrapper\BuildingPlans;
  */
 interface Filters {
 	/**
-	 * Adding Hooks.
+	 * Adding Filters.
 	 *
 	 * @since 1.0.0
 	 */
-	public function add_filters();
+	public function addFilters();
 }

@@ -11,9 +11,9 @@ namespace Awsm\WPWrapper\BuildingPlans;
  */
 interface Actions {
 	/**
-	 * Adding Hooks.
+	 * Adding Actions.
 	 *
 	 * @since 1.0.0
 	 */
-	public function add_actions();
+	public function addActions();
 }
