@@ -22,7 +22,7 @@ The plugin wrapper helps you to initialize your plugin. This is a simple example
 require dirname( __DIR__ ) .'/vendor/autoload.php'; 
 
 (new \Awsm\WP_Wrapper\Plugin\Plugin() )
-    ->addTranslation( 'example-plugin', dirname(__DIR__) . '/languages' )
+    ->add_translation( 'example-plugin', dirname(__DIR__) . '/languages' )
     ->add_task(My_Task::class)
     ->boot();
 ```

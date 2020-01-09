@@ -94,7 +94,7 @@ class Plugin implements Actions {
 	 */
 	public function add_actions() {
 		add_action( 'plugins_loaded', array( $this, 'run_tasks' ) );
-		add_action( 'plugins_loaded', array( $this, 'loadTranslation' ) );
+		add_action( 'plugins_loaded', array( $this, 'load_translation' ) );
 	}
 
 	/**
@@ -107,7 +107,7 @@ class Plugin implements Actions {
 	 *
 	 * @return Plugin Plugin object.
 	 */
-	public function addTranslation( $textdomain, $translation_path ): Plugin {
+	public function add_translation( $textdomain, $translation_path ): Plugin {
 		$this->textdomain = $textdomain;
 		$this->translation_path = $translation_path;
 
@@ -122,7 +122,7 @@ class Plugin implements Actions {
 	 *
 	 * @return bool If translation is loaded.
 	 */
-	public function loadTranslation() {
+	public function load_translation() {
 		return \load_plugin_textdomain( $this->textdomain, false, $this->translation_path );
 	}
 }
