@@ -9,7 +9,7 @@
  * @link     https://awesome.ug
  */
 
-namespace Awsm\WPWrapper\Exceptions;
+namespace Awsm\WP_Wrapper\Exceptions;
 
 /**
  * Class Runtime_Exception.

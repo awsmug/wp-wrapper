@@ -3,13 +3,13 @@
  * Class for adding admin editor scripts.
  *
  * @category Class
- * @package  Awsm\WPWrapper\Assets
+ * @package  Awsm\WP_Wrapper\Assets
  * @author   Sven Wagener
  * @license  https://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://awesome.ug
  */
 
-namespace Awsm\WPWrapper\Assets;
+namespace Awsm\WP_Wrapper\Assets;
 
 /**
  * Class Editor_Script.

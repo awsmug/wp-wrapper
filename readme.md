@@ -21,7 +21,7 @@ The plugin wrapper helps you to initialize your plugin. This is a simple example
 // Path to composer autoload file.
 require dirname( __DIR__ ) .'/vendor/autoload.php'; 
 
-(new \Awsm\WPWrapper\Plugin\Plugin() )
+(new \Awsm\WP_Wrapper\Plugin\Plugin() )
     ->addTranslation( 'example-plugin', dirname(__DIR__) . '/languages' )
     ->add_task(MyTask::class)
     ->boot();
@@ -36,7 +36,7 @@ A task is a class with your program code and contains the task interface.
 /**
  * Example service.
  **/
-class My_Task implements \Awsm\WPWrapper\Building_Plans\Task {
+class My_Task implements \Awsm\WP_Wrapper\Building_Plans\Task {
     public function run() {
         // Your code here
     }
@@ -53,7 +53,7 @@ The task runner is a trait which can be used in classes which have to start task
  * Example task runner class.
  **/
 class My_Task_Runner {
-    use \Awsm\WPWrapper\Tasks\Task_Runner;
+    use \Awsm\WP_Wrapper\Tasks\Task_Runner;
     
     public function __construct() {
         $this->runTasks();
@@ -70,8 +70,8 @@ But better load the scripts where they have to be loaded. Use the action interfa
 /**
  * Example task runner class.
  **/
-class My_Task_Runner implements Awsm\WPWrapper\Building_Plans\Actions {
-    use \Awsm\WPWrapper\Tasks\Task_Runner;
+class My_Task_Runner implements Awsm\WP_Wrapper\Building_Plans\Actions {
+    use \Awsm\WP_Wrapper\Tasks\Task_Runner;
     
     public function __construct() {
         $this->runTasks();

@@ -3,15 +3,15 @@
  * Trait for running tasks.
  *
  * @category Class
- * @package  Awsm\WPWrapper\Tasks
+ * @package  Awsm\WP_Wrapper\Tasks
  * @author   Sven Wagener
  * @license  https://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://awesome.ug
  */
 
-namespace Awsm\WPWrapper\Tasks;
+namespace Awsm\WP_Wrapper\Tasks;
 
-use Awsm\WPWrapper\Exceptions\Exception;
+use Awsm\WP_Wrapper\Exceptions\Exception;
 
 /**
  * Trait Task_Runner.
@@ -72,7 +72,7 @@ trait Task_Runner {
 
 				$class = new \ReflectionClass( $task[0] );
 
-				if ( ! $class->implementsInterface( 'Awsm\WPWrapper\Building_Plans\Task' ) ) {
+				if ( ! $class->implementsInterface( 'Awsm\WP_Wrapper\Building_Plans\Task' ) ) {
 					throw new Exception( sprintf( 'Service class \'%s\' does not implement Task interface', $task[0] ) );
 				}
 

@@ -3,13 +3,13 @@
  * Filters interface.
  *
  * @category Interface
- * @package  Awsm\WPWrapper\Building_Plans
+ * @package  Awsm\WP_Wrapper\Building_Plans
  * @author   Sven Wagener
  * @license  https://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://awesome.ug
  */
 
-namespace Awsm\WPWrapper\Building_Plans;
+namespace Awsm\WP_Wrapper\Building_Plans;
 
 /**
  * Interface Hooks_Interface.

@@ -3,16 +3,16 @@
  * Class for plugin intialization.
  *
  * @category Class
- * @package  Awsm\WPWrapper\Plugin
+ * @package  Awsm\WP_Wrapper\Plugin
  * @author   Sven Wagener
  * @license  https://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://awesome.ug
  */
 
-namespace Awsm\WPWrapper\Plugin;
+namespace Awsm\WP_Wrapper\Plugin;
 
-use Awsm\WPWrapper\Building_Plans\Actions;
-use Awsm\WPWrapper\Tasks\Task_Runner;
+use Awsm\WP_Wrapper\Building_Plans\Actions;
+use Awsm\WP_Wrapper\Tasks\Task_Runner;
 
 /**
  * Class Plugin.
@@ -20,7 +20,7 @@ use Awsm\WPWrapper\Tasks\Task_Runner;
  * Main plugin controller class that hooks the plugin's functionality into the WordPress request lifecycle.
  *
  * @since   1.0.0
- * @package Awsm\WPWrapper\Plugin\
+ * @package Awsm\WP_Wrapper\Plugin\
  * @author  Sven Wagener <support@awesome.ug>
  */
 class Plugin implements Actions {

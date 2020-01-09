@@ -3,20 +3,20 @@
  * Abstract class for use in assets.
  *
  * @category Class
- * @package  Awsm\WPWrapper\Assets
+ * @package  Awsm\WP_Wrapper\Assets
  * @author   Sven Wagener
  * @license  https://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     https://awesome.ug
  */
 
-namespace Awsm\WPWrapper\Assets;
+namespace Awsm\WP_Wrapper\Assets;
 
 /**
  * Class Asset.
  *
  * @since 1.0.0
  *
- * @package Awsm\WPWrapper\Assets
+ * @package Awsm\WP_Wrapper\Assets
  */
 abstract class Asset {
 
