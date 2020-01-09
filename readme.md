@@ -23,7 +23,7 @@ require dirname( __DIR__ ) .'/vendor/autoload.php';
 
 (new \Awsm\WPWrapper\Plugin\Plugin() )
     ->addTranslation( 'example-plugin', dirname(__DIR__) . '/languages' )
-    ->addTask(MyTask::class)
+    ->add_task(MyTask::class)
     ->boot();
 ```
 
@@ -36,7 +36,7 @@ A task is a class with your program code and contains the task interface.
 /**
  * Example service.
  **/
-class MyTask implements \Awsm\WPWrapper\Building_Plans\Task {
+class My_Task implements \Awsm\WPWrapper\Building_Plans\Task {
     public function run() {
         // Your code here
     }
@@ -52,15 +52,15 @@ The task runner is a trait which can be used in classes which have to start task
 /**
  * Example task runner class.
  **/
-class MyTaskRunner {
-    use \Awsm\WPWrapper\Tasks\TaskRunner;
+class My_Task_Runner {
+    use \Awsm\WPWrapper\Tasks\Task_Runner;
     
     public function __construct() {
         $this->runTasks();
     }
 }
 
-(new MyTaskRunner())->addTask( MyTask::class );
+(new My_Task_Runner())->add_task( My_Task::class );
 ```
 
 But better load the scripts where they have to be loaded. Use the action interface to do your actions.
@@ -70,20 +70,20 @@ But better load the scripts where they have to be loaded. Use the action interfa
 /**
  * Example task runner class.
  **/
-class MyTaskRunner implements Awsm\WPWrapper\Building_Plans\Actions {
-    use \Awsm\WPWrapper\Tasks\TaskRunner;
+class My_Task_Runner implements Awsm\WPWrapper\Building_Plans\Actions {
+    use \Awsm\WPWrapper\Tasks\Task_Runner;
     
     public function __construct() {
         $this->runTasks();
     }
 
     public function add_actions(){
-        add_action( 'select_a_hook_here', [ $this. 'runTasks'] );
+        add_action( 'select_a_hook_here', [ $this, 'run_tasks'] );
     }
 
 }
 
-(new MyTaskRunner())->addTask( MyTask::class );
+(new My_Task_Runner())->add_task( My_Task::class );
 ```
 
 

@@ -12,7 +12,7 @@
 namespace Awsm\WPWrapper\Plugin;
 
 use Awsm\WPWrapper\Building_Plans\Actions;
-use Awsm\WPWrapper\Tasks\TaskRunner;
+use Awsm\WPWrapper\Tasks\Task_Runner;
 
 /**
  * Class Plugin.
@@ -82,7 +82,7 @@ class Plugin implements Actions {
 	 * @since 1.0.0
 	 */
 	public function boot() {
-		$this->addActions();
+		$this->add_actions();
 
 		return $this;
 	}
@@ -92,7 +92,7 @@ class Plugin implements Actions {
 	 *
 	 * @since 1.0.0
 	 */
-	public function addActions() {
+	public function add_actions() {
 		add_action( 'plugins_loaded', array( $this, 'runTasks' ) );
 		add_action( 'plugins_loaded', array( $this, 'loadTranslation' ) );
 	}
