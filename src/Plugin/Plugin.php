@@ -93,7 +93,7 @@ class Plugin implements Actions {
 	 * @since 1.0.0
 	 */
 	public function add_actions() {
-		add_action( 'plugins_loaded', array( $this, 'runTasks' ) );
+		add_action( 'plugins_loaded', array( $this, 'run_tasks' ) );
 		add_action( 'plugins_loaded', array( $this, 'loadTranslation' ) );
 	}
 

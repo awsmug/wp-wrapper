@@ -56,7 +56,7 @@ class My_Task_Runner {
     use \Awsm\WP_Wrapper\Tasks\Task_Runner;
     
     public function __construct() {
-        $this->runTasks();
+        $this->run_tasks();
     }
 }
 
@@ -74,7 +74,7 @@ class My_Task_Runner implements Awsm\WP_Wrapper\Building_Plans\Actions {
     use \Awsm\WP_Wrapper\Tasks\Task_Runner;
     
     public function __construct() {
-        $this->runTasks();
+        $this->run_tasks();
     }
 
     public function add_actions(){
