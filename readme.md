@@ -36,7 +36,7 @@ A task is a class with your program code and contains the task interface.
 /**
  * Example service.
  **/
-class MyTask implements \Awsm\WPWrapper\BuildingPlans\Task {
+class MyTask implements \Awsm\WPWrapper\Building_Plans\Task {
     public function run() {
         // Your code here
     }
@@ -70,7 +70,7 @@ But better load the scripts where they have to be loaded. Use the action interfa
 /**
  * Example task runner class.
  **/
-class MyTaskRunner implements Awsm\WPWrapper\BuildingPlans\Actions {
+class MyTaskRunner implements Awsm\WPWrapper\Building_Plans\Actions {
     use \Awsm\WPWrapper\Tasks\TaskRunner;
     
     public function __construct() {

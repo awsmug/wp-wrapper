@@ -1,11 +1,24 @@
 <?php
+/**
+ * Trait for running tasks.
+ *
+ * @category Class
+ * @package  Awsm\WPWrapper\Tasks
+ * @author   Sven Wagener
+ * @license  https://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://awesome.ug
+ */
 
 namespace Awsm\WPWrapper\Tasks;
 
 use Awsm\WPWrapper\Exceptions\Exception;
 
-
-trait TaskRunner {
+/**
+ * Trait Task_Runner.
+ *
+ * @since 1.0.0
+ */
+trait Task_Runner {
 	/**
 	 * Tasks.
 	 *
@@ -21,11 +34,11 @@ trait TaskRunner {
 	 * @since 1.0.0
 	 *
 	 * @param string $class Class name.
-	 * @param array  $params Parameters to put in constructor.
+	 * @param array  ...$params Parameters to put in constructor.
 	 *
 	 * @return object $this Current object.
 	 */
-	public function addTask( $class, ...$params ) {
+	public function add_task( $class, ...$params ) {
 		$this->tasks[] = array( $class, $params );
 
 		return $this;
@@ -39,7 +52,7 @@ trait TaskRunner {
 	 *
 	 * @return Task[] Array of fully qualified class names.
 	 */
-	public function getTasks() {
+	public function get_tasks() {
 		return $this->tasks;
 	}
 
@@ -48,7 +61,7 @@ trait TaskRunner {
 	 *
 	 * @since 1.0.0
 	 */
-	public function runTasks() {
+	public function run_tasks() {
 		array_walk(
 			$this->tasks,
 			function ( $task ) {
@@ -59,7 +72,7 @@ trait TaskRunner {
 
 				$class = new \ReflectionClass( $task[0] );
 
-				if ( ! $class->implementsInterface( 'Awsm\WPWrapper\BuildingPlans\Task' ) ) {
+				if ( ! $class->implementsInterface( 'Awsm\WPWrapper\Building_Plans\Task' ) ) {
 					throw new Exception( sprintf( 'Service class \'%s\' does not implement Task interface', $task[0] ) );
 				}
 

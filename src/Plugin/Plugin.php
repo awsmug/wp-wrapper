@@ -1,9 +1,17 @@
 <?php
-
+/**
+ * Class for plugin intialization.
+ *
+ * @category Class
+ * @package  Awsm\WPWrapper\Plugin
+ * @author   Sven Wagener
+ * @license  https://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://awesome.ug
+ */
 
 namespace Awsm\WPWrapper\Plugin;
 
-use Awsm\WPWrapper\BuildingPlans\Actions;
+use Awsm\WPWrapper\Building_Plans\Actions;
 use Awsm\WPWrapper\Tasks\TaskRunner;
 
 /**
@@ -12,12 +20,12 @@ use Awsm\WPWrapper\Tasks\TaskRunner;
  * Main plugin controller class that hooks the plugin's functionality into the WordPress request lifecycle.
  *
  * @since   1.0.0
- * @package Awsm\WP_Plugin
+ * @package Awsm\WPWrapper\Plugin\
  * @author  Sven Wagener <support@awesome.ug>
  */
 class Plugin implements Actions {
 
-	use TaskRunner;
+	use Task_Runner;
 
 	/**
 	 * Plugin name.
@@ -52,9 +60,9 @@ class Plugin implements Actions {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @var string $translationPath Path to translations
+	 * @var string $translation_path Path to translations
 	 */
-	protected $translationPath = '';
+	protected $translation_path = '';
 
 	/**
 	 * Running the plugin object.
@@ -95,13 +103,13 @@ class Plugin implements Actions {
 	 * @since 1.0.0
 	 *
 	 * @param string $textdomain Textdomain.
-	 * @param string $translationPath Path to translation folder.
+	 * @param string $translation_path Path to translation folder.
 	 *
 	 * @return Plugin Plugin object.
 	 */
-	public function addTranslation( $textdomain, $translationPath ): Plugin {
+	public function addTranslation( $textdomain, $translation_path ): Plugin {
 		$this->textdomain = $textdomain;
-		$this->translationPath = $translationPath;
+		$this->translation_path = $translation_path;
 
 		return $this;
 	}
@@ -115,6 +123,6 @@ class Plugin implements Actions {
 	 * @return bool If translation is loaded.
 	 */
 	public function loadTranslation() {
-		return \load_plugin_textdomain( $this->textdomain, false, $this->translationPath );
+		return \load_plugin_textdomain( $this->textdomain, false, $this->translation_path );
 	}
 }

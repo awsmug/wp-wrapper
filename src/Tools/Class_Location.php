@@ -1,6 +1,15 @@
 <?php
+/**
+ * Trait for location of a class.
+ *
+ * @category Class
+ * @package  Awsm\Tools
+ * @author   Sven Wagener
+ * @license  https://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://awesome.ug
+ */
 
-namespace Awsm\WP_Plugin\Tools;
+namespace Awsm\Tools;
 
 /**
  * Trait Class_Location_Trait.
@@ -18,7 +27,7 @@ trait Class_Location {
 	 *
 	 * @return false|string Locaton of class file.
 	 *
-	 * @throws \ReflectionException
+	 * @throws \ReflectionException Throws exception on getting filename of class.
 	 */
 	public static function get_file() {
 		$reflection = new \ReflectionClass( self::class );
@@ -32,7 +41,7 @@ trait Class_Location {
 	 *
 	 * @return false|string Path of class file.
 	 *
-	 * @throws \ReflectionException
+	 * @throws \ReflectionException Throws exception on getting filename of class.
 	 */
 	public static function get_path() {
 		return plugin_dir_path( self::get_file() );
@@ -45,7 +54,7 @@ trait Class_Location {
 	 *
 	 * @return false|string Url of class file.
 	 *
-	 * @throws \ReflectionException
+	 * @throws \ReflectionException Throws exception on getting filename of class.
 	 */
 	public static function get_url() {
 		return plugin_dir_url( self::get_file() );

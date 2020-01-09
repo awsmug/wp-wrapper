@@ -1,8 +1,17 @@
 <?php
+/**
+ * Abstract class for adding style.
+ *
+ * @category Class
+ * @package  Awsm\WPWrapper\Assets
+ * @author   Sven Wagener
+ * @license  https://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://awesome.ug
+ */
 
 namespace Awsm\WPWrapper\Assets;
 
-use Awsm\WPWrapper\BuildingPlans\Actions;
+use Awsm\WPWrapper\Building_Plans\Actions;
 
 /**
  * Class Style.

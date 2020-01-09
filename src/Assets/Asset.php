@@ -1,4 +1,13 @@
 <?php
+/**
+ * Abstract class for use in assets.
+ *
+ * @category Class
+ * @package  Awsm\WPWrapper\Assets
+ * @author   Sven Wagener
+ * @license  https://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://awesome.ug
+ */
 
 namespace Awsm\WPWrapper\Assets;
 
@@ -67,10 +76,10 @@ abstract class Asset {
 	 * @param string $version      String specifying stylesheet version number.
 	 */
 	public function __construct( string $handle, string $source, array $dependencies = array(), string $version ) {
-		$this->handle = $handle;
-		$this->source = $source;
+		$this->handle       = $handle;
+		$this->source       = $source;
 		$this->dependencies = $dependencies;
-		$this->version = $version;
+		$this->version      = $version;
 
 		$this->register();
 	}
@@ -80,12 +89,12 @@ abstract class Asset {
 	 *
 	 * @return mixed
 	 */
-	abstract function register();
+	abstract public function register();
 
 	/**
 	 * Enqueue scripts.
 	 *
 	 * @return mixed
 	 */
-	abstract function enqueue();
+	abstract public function enqueue();
 }

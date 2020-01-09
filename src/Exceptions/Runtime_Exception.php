@@ -1,6 +1,6 @@
 <?php
 /**
- * Exception wrapper.
+ * Runtime exception wrapper.
  *
  * @category Class
  * @package  Awsm\Exceptions
@@ -12,12 +12,12 @@
 namespace Awsm\WPWrapper\Exceptions;
 
 /**
- * Class Exception.
+ * Class Runtime_Exception.
  *
  * @since 1.0.0
  *
- * @package Enon\Exceptions
+ * @package Awsm\Exceptions
  */
-class Exception extends \Exception {
+class Runtime_Exception extends \RuntimeException {
 
 }
