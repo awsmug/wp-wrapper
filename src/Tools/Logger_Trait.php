@@ -9,7 +9,7 @@
  * @link     https://awesome.ug
  */
 
-namespace Awsm\WP_Wrapper\Traits;
+namespace Awsm\WP_Wrapper\Tools;
 
 /**
  * Trait Logger.
@@ -18,7 +18,7 @@ namespace Awsm\WP_Wrapper\Traits;
  *
  * @package Awsm\WP_Wrapper\Traits
  */
-trait Logger {
+trait Logger_Trait {
 	/**
 	 * Logger object.
 	 *
