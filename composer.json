@@ -21,10 +21,10 @@
   },
   "autoload": {
     "psr-4": {
-      "Awsm\\WP_Wrapper\\": "src/"
+      "awsm\\wp_Wrapper\\": "src/"
     }
   },
   "require": {
     "monolog/monolog": "^2.0"
-  },
+  }
 }
