@@ -67,6 +67,6 @@ class Logger extends \Monolog\Logger {
 	 * @return string Logging filename.
 	 */
 	protected function get_debug_level() {
-		return Logger::DEBUG;
+		return Logger::WARNING;
 	}
 }
