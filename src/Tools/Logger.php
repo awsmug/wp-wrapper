@@ -45,7 +45,7 @@ class Logger extends \Monolog\Logger {
 	 * @return string Logging path.
 	 */
 	protected function get_logging_path() {
-		return dirname( ABSPATH );
+		return defined( 'WP_LOG_DIR' ) ? WP_LOG_DIR : dirname( ABSPATH );
 	}
 
 	/**
