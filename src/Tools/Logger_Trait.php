@@ -26,7 +26,7 @@ trait Logger_Trait {
 	 *
 	 * @var \Awsm\WP_Wrapper\Tools\Logger
 	 */
-	private $logger;
+	protected $logger;
 
 	/**
 	 * Logger fuunction.
