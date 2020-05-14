@@ -43,6 +43,7 @@ abstract class Script extends Asset implements Actions {
 	public function __construct( string $handle, string $source, array $dependencies = array(), string $version, bool $in_footer ) {
 		$this->in_footer = $in_footer;
 		$this->add_actions();
+
 		parent::__construct( $handle, $source, $dependencies, $version );
 	}
 
@@ -56,22 +57,11 @@ abstract class Script extends Asset implements Actions {
 	}
 
 	/**
-	 * Registering script.
-	 *
-	 * @since 1.0.0
-	 */
-	public function register() {
-		\wp_register_script( $this->handle, $this->src, $this->dependencies, $this->version, $this->in_footer );
-	}
-
-	/**
 	 * Enqueuing script.
 	 *
 	 * @since 1.0.0
 	 */
 	public function enqueue() {
-		parent::enqueue();
-
-		\wp_enqueue_script( $this->handle );
+		\wp_enqueue_script( $this->handle, $this->source, $this->dependencies, $this->version, $this->in_footer );
 	}
 }
