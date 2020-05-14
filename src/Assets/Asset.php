@@ -83,18 +83,11 @@ abstract class Asset {
 	}
 
 	/**
-	 * Register scripts.
-	 *
-	 * @return mixed
-	 */
-	abstract public function register();
-
-	/**
 	 * Enqueue scripts.
 	 *
 	 * @return mixed
+	 *
+	 * @since 1.0.0
 	 */
-	public function enqueue() {
-		$this->register();
-	}
+	abstract public function enqueue();
 }
