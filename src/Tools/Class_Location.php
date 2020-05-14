@@ -9,7 +9,7 @@
  * @link     https://awesome.ug
  */
 
-namespace Awsm\Tools;
+namespace Awsm\WP_Wrapper\Tools;
 
 /**
  * Trait Class_Location_Trait.
