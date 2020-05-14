@@ -80,8 +80,6 @@ abstract class Asset {
 		$this->source       = $source;
 		$this->dependencies = $dependencies;
 		$this->version      = $version;
-
-		$this->register();
 	}
 
 	/**
@@ -96,5 +94,7 @@ abstract class Asset {
 	 *
 	 * @return mixed
 	 */
-	abstract public function enqueue();
+	public function enqueue() {
+		$this->register();
+	}
 }
