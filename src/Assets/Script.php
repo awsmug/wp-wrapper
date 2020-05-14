@@ -70,6 +70,8 @@ abstract class Script extends Asset implements Actions {
 	 * @since 1.0.0
 	 */
 	public function enqueue() {
+		parent::enqueue();
+
 		\wp_enqueue_script( $this->handle );
 	}
 }
