@@ -1,6 +1,6 @@
 <?php
 /**
- * Filters interface.
+ * Task interface.
  *
  * @category Interface
  * @package  Awsm\WP_Wrapper\Building_Plans
@@ -9,20 +9,22 @@
  * @link     https://awesome.ug
  */
 
-namespace Awsm\WP_Wrapper\Building_Plans;
+namespace Awsm\WP_Wrapper\Interfaces;
 
 /**
- * Interface Hooks_Interface.
+ * Task Plugin_Interface
  *
- * @package SvenWagener\WP_Plugin
+ * @package Awsm\WP_Wrapper\Building_Plans
  *
  * @since 1.0.0
  */
-interface Filters {
+interface Task {
 	/**
-	 * Adding Filters.
+	 * Register function which executes scripts.
 	 *
 	 * @since 1.0.0
+	 *
+	 * @return mixed
 	 */
-	public function add_filters();
+	public function run();
 }

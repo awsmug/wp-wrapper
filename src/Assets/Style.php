@@ -11,7 +11,7 @@
 
 namespace Awsm\WP_Wrapper\Assets;
 
-use Awsm\WP_Wrapper\Building_Plans\Actions;
+use Awsm\WP_Wrapper\Interfaces\Actions;
 
 /**
  * Class Style.
