@@ -26,5 +26,8 @@
   },
   "require": {
     "monolog/monolog": "^1.0"
+  },
+  "require-dev": {
+    "wp-coding-standards/wpcs": "dev-master"
   }
 }
