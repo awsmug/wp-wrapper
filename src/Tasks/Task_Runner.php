@@ -72,7 +72,7 @@ trait Task_Runner {
 
 				$class = new \ReflectionClass( $task[0] );
 
-				if ( ! $class->implementsInterface( 'Awsm\WP_Wrapper\Building_Plans\Task' ) ) {
+				if ( ! $class->implementsInterface( 'Awsm\WP_Wrapper\Interfaces\Task' ) ) {
 					throw new Exception( sprintf( 'Service class \'%s\' does not implement Task interface', $task[0] ) );
 				}
 
