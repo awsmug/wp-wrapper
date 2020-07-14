@@ -9,7 +9,7 @@
  * @link     https://awesome.ug
  */
 
-namespace Awsm\WP_Wrapper\Building_Plans;
+namespace Awsm\WP_Wrapper\Interfaces;
 
 /**
  * Interface Hooks_Interface.
