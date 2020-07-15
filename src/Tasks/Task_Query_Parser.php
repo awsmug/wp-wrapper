@@ -26,7 +26,7 @@ trait Task_Query_Parser {
 	 *
 	 * @since 1.0.0
 	 */
-	private $task_parameter_prefix = '';
+	private $query_parameter_prefix = '';
 
 	/**
 	 * Values of query.
@@ -84,7 +84,7 @@ trait Task_Query_Parser {
 	 * @since 1.0.0
 	 */
 	public function set_query_parameter_prefix( string $name ) {
-		$this->task_parameter_prefix = $name;
+		$this->query_parameter_prefix = $name;
 	}
 
 	/**
@@ -94,8 +94,8 @@ trait Task_Query_Parser {
 	 *
 	 * @since 1.0.0
 	 */
-	public function get_task_parameter_prefix() {
-		return $this->task_parameter_prefix;
+	public function get_query_parameter_prefix() {
+		return $this->query_parameter_prefix;
 	}
 
 	/**
@@ -115,13 +115,13 @@ trait Task_Query_Parser {
 		}
 
 		foreach ( array_keys( $query ) as $parameter ) {
-			$is_valid_argument = strpos( $parameter, $this->get_task_parameter_prefix() );
+			$is_valid_argument = strpos( $parameter, $this->get_query_parameter_prefix() );
 
 			if ( $is_valid_argument === false ) {
 				continue;
 			}
 
-			$parameter_new_key            = str_replace( $this->get_task_parameter_prefix() . '_', '', $parameter );
+			$parameter_new_key            = str_replace( $this->get_query_parameter_prefix() . '_', '', $parameter );
 			$values[ $parameter_new_key ] = $query[ $parameter ];
 		};
 
