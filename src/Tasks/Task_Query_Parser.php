@@ -83,7 +83,7 @@ trait Task_Query_Parser {
 	 *
 	 * @since 1.0.0
 	 */
-	public function set_task_parameter_prefix( string $name ) {
+	public function set_query_parameter_prefix( string $name ) {
 		$this->task_parameter_prefix = $name;
 	}
 
