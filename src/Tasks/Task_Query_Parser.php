@@ -68,7 +68,7 @@ trait Task_Query_Parser {
 	 *
 	 * @since 1.0.0
 	 */
-	public function has_values() {
+	public function has_query_values() {
 		if( is_array( $this->values ) && count( $this->values ) > 0 ) {
 			return true;
 		}
