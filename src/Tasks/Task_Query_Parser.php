@@ -40,14 +40,14 @@ trait Task_Query_Parser {
 	/**
 	 * Returns a array with all parsed query arguments.
 	 *
-	 * @param array $arguments Array with many arguments.
+	 * @param array $data Data from $_GET, $_POST or $_REQUEST variable.
 	 *
-	 * @return array Filtered arguments.
+	 * @return array Query values for task.
 	 *
 	 * @since 1.0.0
 	 */
-	public function get_query_values( array $arguments ): array {
-		return $this->parse_task_query( $arguments );
+	public function get_query_values( array $data ): array {
+		return $this->parse_task_query( $data );
 	}
 
 	/**
