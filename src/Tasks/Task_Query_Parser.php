@@ -19,62 +19,69 @@ use Awsm\WP_Wrapper\Exceptions\Exception;
  * @since 1.0.0
  */
 trait Task_Query_Parser {
-
 	/**
 	 * Tasks.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @var array $services Registered services
+	 * @var array $services Registered services.
 	 */
 	protected $tasks = array();
 
 	/**
-	 * Assign a string as identifier for this task
+	 * Parameter identifier for this task.
 	 *
 	 * @var string
+	 *
+	 * @since 1.0.0
 	 */
-	private $task_query_prefix = '';
+	private $task_parameter_prefix = '';
 
 	/**
-	 * Returns a array with all parsed query arguments
+	 * Returns a array with all parsed query arguments.
 	 *
-	 * @param array $argumentsma array with many arguments
+	 * @param array $arguments Array with many arguments.
 	 *
-	 * @return array
+	 * @return array Filtered arguments.
+	 *
+	 * @since 1.0.0
 	 */
-	public function get_parsed_task_queries( array $arguments ): array {
-		return $this->parse_task_queries( $arguments );
+	public function get_query_values( array $arguments ): array {
+		return $this->parse_task_query( $arguments );
 	}
 
 	/**
-	 * Set query prefix for an task
+	 * Set query prefix for a task.
 	 *
-	 * @param string $name prefix
+	 * @param string $name Task query prefix.
+	 *
+	 * @since 1.0.0
 	 */
-	public function set_task_query_prefix( string $name ) {
-		$this->task_query_prefix = $name;
+	public function set_task_parameter_prefix( string $name ) {
+		$this->task_parameter_prefix = $name;
 	}
 
 	/**
-	 * Retrieve query prefix string
+	 * Retrieve query prefix string.
 	 *
-	 * @return string
+	 * @return string Task query prefix.
+	 *
+	 * @since 1.0.0
 	 */
-	public function get_task_query_prefix() {
-
-		return $this->task_query_prefix;
+	public function get_task_parameter_prefix() {
+		return $this->task_parameter_prefix;
 	}
 
 	/**
-	 * Filter a array for arguments by task_query_prefix
+	 * Filter an array for arguments by task_parameter_prefix
 	 *
 	 * @param array $arguments
 	 *
 	 * @return array
+	 *
+	 * @since 1.0.0
 	 */
-	private function parse_task_queries( array $arguments ): array {
-
+	private function parse_task_query( array $arguments ): array {
 		$parsed_arguments = array();
 
 		if ( empty( $arguments ) ) {
@@ -82,13 +89,13 @@ trait Task_Query_Parser {
 		}
 
 		foreach ( array_keys( $arguments ) as $argument ) {
-			$is_valid_argument = strpos( $argument, $this->get_task_query_prefix() );
+			$is_valid_argument = strpos( $argument, $this->get_task_parameter_prefix() );
 
 			if ( $is_valid_argument === false ) {
 				continue;
 			}
 
-			$argument_new_key                      = str_replace( $this->get_task_query_prefix() . '_', '', $argument );
+			$argument_new_key                      = str_replace( $this->get_task_parameter_prefix() . '_', '', $argument );
 			$parsed_arguments[ $argument_new_key ] = $arguments[ $argument ];
 		};
 
