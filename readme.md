@@ -19,7 +19,7 @@ The plugin wrapper helps you to initialize your plugin. This is a simple example
  * Plugin Name: Example plugin.
  */
 // Path to composer autoload file.
-require dirname( __DIR__ ) .'/vendor/autoload.php'; 
+require dirname( __FILE__ ) .'/vendor/autoload.php'; 
 
 (new \Awsm\WP_Wrapper\Plugin\Plugin() )
     ->add_translation( 'example-plugin', dirname(__DIR__) . '/languages' )
