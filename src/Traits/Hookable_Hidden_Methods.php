@@ -39,6 +39,8 @@ trait Hookable_Hidden_Methods {
 	 * @param $name
 	 * @param $arguments
 	 *
+	 * @return mixed
+	 *
 	 * @since 1.0.0
 	 */
 	public function __call( $name, $arguments ) {
@@ -46,6 +48,6 @@ trait Hookable_Hidden_Methods {
 			return;
 		}
 
-		call_user_func_array( [ $this, $name ], $arguments  );
+		return call_user_func_array( [ $this, $name ], $arguments  );
 	}
 }
