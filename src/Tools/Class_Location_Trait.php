@@ -14,11 +14,11 @@ namespace Awsm\WP_Wrapper\Tools;
 /**
  * Trait Class_Location_Trait.
  *
- * @since 1.1.0
+ * @since 1.0.0
  *
  * @package SvenWagener\WP_Plugin
  */
-trait Class_Location {
+trait Class_Location_Trait {
 
 	/**
 	 * Get full file location of class containing trait.
@@ -29,7 +29,7 @@ trait Class_Location {
 	 *
 	 * @throws \ReflectionException Throws exception on getting filename of class.
 	 */
-	public static function get_file() {
+	public static function get_file() : string {
 		$reflection = new \ReflectionClass( self::class );
 		return $reflection->getFileName();
 	}
@@ -43,7 +43,7 @@ trait Class_Location {
 	 *
 	 * @throws \ReflectionException Throws exception on getting filename of class.
 	 */
-	public static function get_path() {
+	public static function get_path() : string {
 		return plugin_dir_path( self::get_file() );
 	}
 
@@ -56,7 +56,7 @@ trait Class_Location {
 	 *
 	 * @throws \ReflectionException Throws exception on getting filename of class.
 	 */
-	public static function get_url() {
+	public static function get_url() : string {
 		return plugin_dir_url( self::get_file() );
 	}
 }
