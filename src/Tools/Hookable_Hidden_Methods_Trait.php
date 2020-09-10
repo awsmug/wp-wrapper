@@ -1,6 +1,6 @@
 <?php
 
-namespace Awsm\WP_Wrapper\Traits;
+namespace Awsm\WP_Wrapper\Tools;
 
 /**
  * Trait Hookable_Hidden_Methods.
@@ -12,7 +12,7 @@ namespace Awsm\WP_Wrapper\Traits;
  *
  * @since 1.0.0
  */
-trait Hookable_Hidden_Methods {
+trait Hookable_Hidden_Methods_Trait {
 	/**
 	 * Hookable hidden methods.
 	 *
