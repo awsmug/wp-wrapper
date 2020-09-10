@@ -22,6 +22,17 @@ namespace Awsm\WP_Wrapper\Tools;
 
 class WP_Location {
 	/**
+	 * Determining site admin.
+	 *
+	 * @return bool True on WordPress admin, false if not.
+	 *
+	 * @since 1.0.0
+	 */
+	public static function admin() {
+		return is_admin();
+	}
+
+	/**
 	 * Determining site home.
 	 *
 	 * @return bool True on WordPress home, false if not.
@@ -41,6 +52,19 @@ class WP_Location {
 	 */
 	public static function page() : bool {
 		return is_page();
+	}
+
+	/**
+	 * Determining if page id is on current page.
+	 *
+	 * @param int $page_id Page id.
+	 * @return bool True on WordPress page, false if not.
+	 *
+	 * @since 1.0.0
+	 */
+	public static function page_id( int $page_id ) : bool {
+		global $post;
+		return is_page() && $page_id === $post->ID;
 	}
 
 	/**
