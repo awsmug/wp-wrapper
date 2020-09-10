@@ -33,6 +33,28 @@ class WP_Location {
 	}
 
 	/**
+	 * Determining site ajax.
+	 *
+	 * @return bool True on WordPress ajax, false if not.
+	 *
+	 * @since 1.0.0
+	 */
+	public static function ajax() {
+		return defined( 'DOING_AJAX' ) && DOING_AJAX;
+	}
+
+	/**
+	 * Determining frontend.
+	 *
+	 * @return bool True on WordPress frontend, false if not.
+	 *
+	 * @since 1.0.0
+	 */
+	public static function frontend() {
+		return ! self::admin() && ! self::ajax();
+	}
+
+	/**
 	 * Determining site home.
 	 *
 	 * @return bool True on WordPress home, false if not.
