@@ -52,7 +52,7 @@ abstract class Script extends Asset implements Actions {
 	 */
 	public function __construct( string $handle, string $source, array $dependencies = array(), string $version, bool $in_footer, $priority = 10 ) {
 		$this->in_footer = $in_footer;
-		$this->priority = $priority;
+		$this->priority  = $priority;
 
 		$this->add_actions();
 

@@ -32,6 +32,15 @@ abstract class Style extends Asset implements Actions {
 	protected $media;
 
 	/**
+	 * Priotity of hooking.
+	 * 
+	 * @since 1.0.0
+	 * 
+	 * @var int
+	 */
+	protected $priority;
+
+	/**
 	 * Script constructor.
 	 *
 	 * @since 1.0.0
@@ -42,8 +51,10 @@ abstract class Style extends Asset implements Actions {
 	 * @param string $version      String specifying stylesheet version number.
 	 * @param string $media        The media for which this stylesheet has been defined.
 	 */
-	public function __construct( $handle, $source, $dependencies = array(), $version, $media = 'all' ) {
+	public function __construct( $handle, $source, $dependencies = array(), $version, $media = 'all', $priority = 10  ) {
 		$this->media = $media;
+		$this->priority = $priority;
+
 		$this->add_actions();
 		parent::__construct( $handle, $source, $dependencies, $version );
 	}
@@ -54,7 +65,7 @@ abstract class Style extends Asset implements Actions {
 	 * @since 1.0.0
 	 */
 	public function add_actions() {
-		\add_action( $this->hook, array( $this, 'enqueue' ) );
+		\add_action( $this->hook, array( $this, 'enqueue' ), $this->priority );
 	}
 
 	/**
