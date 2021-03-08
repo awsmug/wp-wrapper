@@ -32,16 +32,28 @@ abstract class Script extends Asset implements Actions {
 	protected $in_footer = false;
 
 	/**
+	 * Priotity of hooking.
+	 * 
+	 * @since 1.0.0
+	 * 
+	 * @var int
+	 */
+	protected $priority;
+
+	/**
 	 * Script constructor.
 	 *
 	 * @param string $handle       Name of the handle. Should be unique.
 	 * @param string $source       Full URL of the script.
 	 * @param array  $dependencies An array of registered stylesheet handles this stylesheet depends on.
 	 * @param string $version      String specifying stylesheet version number.
-	 * @param bool   $in_footer     Whether to enqueue the script before </body> instead of in the <head>. Default 'false'.
+	 * @param bool   $in_footer    Whether to enqueue the script before </body> instead of in the <head>. Default 'false'.
+	 * @param int    $priority     Priority of the in the hook list.
 	 */
-	public function __construct( string $handle, string $source, array $dependencies = array(), string $version, bool $in_footer ) {
+	public function __construct( string $handle, string $source, array $dependencies = array(), string $version, bool $in_footer, $priority = 10 ) {
 		$this->in_footer = $in_footer;
+		$this->priority = $priority;
+
 		$this->add_actions();
 
 		parent::__construct( $handle, $source, $dependencies, $version );
@@ -53,7 +65,7 @@ abstract class Script extends Asset implements Actions {
 	 * @since 1.0.0
 	 */
 	public function add_actions() {
-		\add_action( $this->hook, array( $this, 'enqueue' ) );
+		\add_action( $this->hook, array( $this, 'enqueue' ), $this->priority );
 	}
 
 	/**
